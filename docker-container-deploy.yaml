@@ -1,0 +1,12 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  
+  tasks:
+  - name: Create & Start Container
+    docker_container:
+      name: webserver
+      image: "kimjuhyo/hello:{{ lookup('env','BUILD_NUMBER') }}"
+      state: started
+      ports:
+      - "80:8080"
