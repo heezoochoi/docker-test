@@ -40,8 +40,8 @@ pipeline {
       agent any
       steps {
         withDockerRegistry(credentialsId: 'docker-hub-token', url: 'https://index.docker.io/v1/') {
-          sh 'docker image push heezoochoi:$BUILD_NUMBER'
-          sh 'docker image push heezoochoi:latest'
+          sh 'docker image push heezoochoi/hello:$BUILD_NUMBER'
+          sh 'docker image push heezoochoi/hello:latest'
         }
       }
     }
