@@ -33,7 +33,8 @@ pipeline {
     stage('Tag Docker Image') {
       agent any
       steps {
-        sh 'docker image tag heezoochoi/hello:latest :$BUILD_NUMBER'
+        sh 'docker image tag heezoochoi/hello:latest' 
+	sh 'docker image tag heezoochoi/hello:$BUILD_NUMBER'
       }
     }
     stage('Publish Docker Image') {
